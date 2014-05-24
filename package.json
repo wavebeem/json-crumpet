@@ -1,0 +1,9 @@
+{
+  "name": "json-crumpet",
+  "version": "0.0.1",
+  "description": "a simple JSON parsing library",
+  "dependencies": {
+    "jison": "^0.4.13",
+    "underscore": "^1.6.0"
+  }
+}
