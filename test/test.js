@@ -327,7 +327,7 @@
   } else {
     var Spec = load("Spec", "./../vendor/spec");
     var Newton = load("Newton", "./../vendor/newton");
-    var Crumpet = load("Crumpet", "../src/crumpet");
+    var Crumpet = load("Crumpet", "../src/json-crumpet");
 
     var testSuite = defineTests(Crumpet, Spec, Newton);
     Crumpet.testSuite = testSuite;

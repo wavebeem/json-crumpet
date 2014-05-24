@@ -1,4 +1,4 @@
-var Crumpet = require("../src/crumpet");
+var Crumpet = require("../src/json-crumpet");
 
 // var parsed = Crumpet.parse('[1, 2,    "ab\\""]');
 // var parsed = Crumpet.parse('[1, 2,    "ab"]');
