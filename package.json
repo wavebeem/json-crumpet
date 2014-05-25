@@ -1,6 +1,6 @@
 {
   "name": "json-crumpet",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a simple JSON parsing library",
   "keywords": ["json", "jison", "simple"],
   "homepage": "https://github.com/saikobee/json-crumpet",
