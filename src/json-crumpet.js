@@ -23,10 +23,6 @@ function unescapeSimple(s) {
     });
 }
 
-function stripQuotes(s) {
-    return s.substring(1, s.length - 1);
-}
-
 parser.yy = {
     merge: _.extend,
     pair: function(k, v) {
@@ -39,7 +35,7 @@ parser.yy = {
         ys.push(x);
         return ys;
     },
-    unescape: _.compose(stripQuotes, unescapeUnicode, unescapeSimple)
+    unescape: _.compose(unescapeUnicode, unescapeSimple)
 };
 
 function parse(text, reviver) {
