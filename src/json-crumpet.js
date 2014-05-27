@@ -35,6 +35,7 @@ parser.yy = {
         ys.push(x);
         return ys;
     },
+    number: _.partial(parseFloat, _, 10),
     unescape: _.compose(unescapeUnicode, unescapeSimple)
 };
 
