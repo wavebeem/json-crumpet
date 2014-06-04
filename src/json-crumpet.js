@@ -3,24 +3,9 @@ var _ = require("underscore");
 var parser = require("./parser");
 
 function unescapeUnicode(s) {
-    return s.replace(/\\u([a-fA-F0-9]{4})/, function(match, $1) {
-        return String.fromCharCode(parseInt($1, 16));
-    });
 }
 
 function unescapeSimple(s) {
-    return s.replace(/\\([\\"\/bfnrt])/, function(match, $1) {
-        return ({
-            '"': '"',
-            '\\': '\\',
-            '/': '/',
-            b: "\b",
-            f: "\f",
-            n: "\n",
-            r: "\r",
-            t: "\t"
-        }[$1]);
-    });
 }
 
 parser.yy = {
@@ -30,13 +15,30 @@ parser.yy = {
         o[k] = v;
         return o;
     },
-    conj: function(xs, x) {
-        var ys = [].concat(xs);
-        ys.push(x);
-        return ys;
+    append: function(xs, x) {
+        xs.push(x);
+        return xs;
     },
     number: _.partial(parseFloat, _, 10),
-    unescape: _.compose(unescapeUnicode, unescapeSimple)
+    unescapeUnicode: function(s) {
+        // Returns the part after "\u" in something like "\u1f09"
+        var codePoint = parseInt(s.substring(2), 16);
+        return String.fromCharCode(codePoint);
+    },
+    unescapeSimple: function(s) {
+        // Returns the character after the "\", like "n" in "\n"
+        var c = s.substring(1);
+        return ({
+            '"': '"',
+            '\\': '\\',
+            '/': '/',
+            b: "\b",
+            f: "\f",
+            n: "\n",
+            r: "\r",
+            t: "\t"
+        }[c]);
+    }
 };
 
 function parse(text, reviver) {
