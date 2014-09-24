@@ -1,12 +1,5 @@
-var _ = require("underscore");
-
+var _ = require("lodash");
 var parser = require("./parser");
-
-function unescapeUnicode(s) {
-}
-
-function unescapeSimple(s) {
-}
 
 parser.yy = {
     merge: _.extend,
@@ -19,7 +12,7 @@ parser.yy = {
         xs.push(x);
         return xs;
     },
-    number: _.partial(parseFloat, _, 10),
+    number: _.partialRight(parseFloat, 10),
     unescapeUnicode: function(s) {
         // Returns the part after "\u" in something like "\u1f09"
         var codePoint = parseInt(s.substring(2), 16);

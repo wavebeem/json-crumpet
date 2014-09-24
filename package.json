@@ -2,7 +2,11 @@
   "name": "json-crumpet",
   "version": "0.0.2",
   "description": "a simple JSON parsing library",
-  "keywords": ["json", "jison", "simple"],
+  "keywords": [
+    "json",
+    "jison",
+    "simple"
+  ],
   "homepage": "https://github.com/saikobee/json-crumpet",
   "repository": {
     "type": "git",
@@ -13,6 +17,6 @@
   "main": "src/json-crumpet.js",
   "dependencies": {
     "jison": "^0.4.13",
-    "underscore": "^1.6.0"
+    "lodash": "^2.4.1"
   }
 }
